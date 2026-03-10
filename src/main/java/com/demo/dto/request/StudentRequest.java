@@ -90,7 +90,7 @@ public class StudentRequest {
      * @Pattern enforces a simple digit-based format.
      * The regex allows 7–15 digits — international-friendly.
      */
-    @Pattern(regexp = "^[0-9]{7,15}$", message = "Phone must be 7 to 15 digits")
+    @Pattern(regexp = "^[0-9+\\- ]{7,15}$", message = "Invalid phone number")
     private String phone;
 
     /**
