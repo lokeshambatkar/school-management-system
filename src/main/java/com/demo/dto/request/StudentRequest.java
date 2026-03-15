@@ -35,6 +35,46 @@ public class StudentRequest {
     @Size(min = 2, max = 50, message = "Last name must be between 2 and 50 characters")
     private String lastName;
 
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public LocalDate getDateOfBirth() {
+        return dateOfBirth;
+    }
+
+    public void setDateOfBirth(LocalDate dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
+
     /**
      * @Email validates the format (contains @, domain, etc.)
      * @NotBlank ensures it's not empty.
@@ -50,7 +90,7 @@ public class StudentRequest {
      * @Pattern enforces a simple digit-based format.
      * The regex allows 7–15 digits — international-friendly.
      */
-    @Pattern(regexp = "^[0-9]{7,15}$", message = "Phone must be 7 to 15 digits")
+    @Pattern(regexp = "^[0-9+\\- ]{7,15}$", message = "Invalid phone number")
     private String phone;
 
     /**
@@ -60,4 +100,6 @@ public class StudentRequest {
      */
     @Past(message = "Date of birth must be a past date")
     private LocalDate dateOfBirth;
+
+
 }
